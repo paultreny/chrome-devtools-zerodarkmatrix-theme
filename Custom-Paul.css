@@ -1,6 +1,6 @@
 /*****************************************************************************/
 /* Zero-Dark-Matrix
-/* Optimized for Chrome Stable Channel v28
+/* Optimized for Chrome Stable Channel v29
 /* https://github.com/mauricecruz/chrome-devtools-zerodarkmatrix-theme
 /*************************************************************************/
 
@@ -36,7 +36,6 @@
 #-webkit-web-inspector .CodeMirror .cm-builtin { color: #8DA6CE !important; }
 #-webkit-web-inspector .CodeMirror .cm-comment { color: #676767 !important; font-style: italic; }
 #-webkit-web-inspector .CodeMirror .cm-def { color: #49a6d2 !important; }
-#-webkit-web-inspector .CodeMirror .cm-error { background: #9D1E15 !important; color: #F8F8F8 !important; }
 #-webkit-web-inspector .CodeMirror .cm-header { color: #FF6400 !important; }
 #-webkit-web-inspector .CodeMirror .cm-hr { color: #AEAEAE !important; }
 #-webkit-web-inspector .CodeMirror .cm-keyword { color: #8b6ccf !important; font-style: italic; }
@@ -81,17 +80,19 @@
 #-webkit-web-inspector .CodeMirror { background: #222 !important; color: #EEE; }
 #-webkit-web-inspector .CodeMirror .cm-breakpoint .CodeMirror-gutter-elt { color: #000 !important; font-weight: 700 !important;}
 #-webkit-web-inspector .CodeMirror .CodeMirror-cursor { border-left: 1px solid #FFF !important; }
+#-webkit-web-inspector .CodeMirror .cm-error { background: #9D1E15 !important; color: #F8F8F8 !important; }
 #-webkit-web-inspector .CodeMirror .CodeMirror-gutter-elt { color: #888 !important;}
 #-webkit-web-inspector .CodeMirror .CodeMirror-gutters {background: #282828 !important;  border-right: 2px solid #2b2b2b !important; }
 #-webkit-web-inspector .CodeMirror .CodeMirror-selected { background: #383838 !important; color: #eee !important; }
 #-webkit-web-inspector .CodeMirror-matchingbracket { border: 1px solid #15CA1A !important; border-radius: 4px; color: #ccc !important;}
 #-webkit-web-inspector .CodeMirror-nonmatchingbracket { border: 1px solid #db0404 !important; border-radius: 4px; color: #ccc !important;}
-#-webkit-web-inspector .CodeMirror .CodeMirror-selectedtext {
-	padding: 0 2px;
-	color: #000 !important;	
-	font-size: 1em !important;
-	background-color: #89F5A2 !important;
-}
+#-webkit-web-inspector .CodeMirror span.CodeMirror-selectedtext { background-color: #383838 !important;}
+#-webkit-web-inspector .CodeMirror .cm-search-highlight-start:before { border-color: #89f5a2 !important;}
+#-webkit-web-inspector .CodeMirror .cm-search-highlight-end:before { border-color: #89f5a2 !important;}
+#-webkit-web-inspector .CodeMirror .cm-search-highlight:before { border-color: #89f5a2 !important; padding: 2px !important;}
+#-webkit-web-inspector .CodeMirror span.cm-token-highlight { padding: 0px !important; border-radius: 2px !important;}
+#-webkit-web-inspector .CodeMirror span.cm-token-highlight:before { border-color: #89f5a2 !important; }
+#-webkit-web-inspector .CodeMirror .cm-line-with-selection span.cm-token-highlight { background-color: #89f5a2 !important; color: #000 !important; }
 #-webkit-web-inspector .CodeMirror .cm-highlight {
 	-webkit-animation: "fadeout-revised" 3s 0s !important;
 }
@@ -463,7 +464,7 @@
 #-webkit-web-inspector .help-window-main,
 #-webkit-web-inspector .tabbed-pane-content.has-no-tabs,
 #-webkit-web-inspector .sidebar-overlay,
-#-webkit-web-inspector .split-view-vertical .sidebar-pane.composite .styles-section.read-only,
+#-webkit-web-inspector .styles-section.read-only,
 #-webkit-web-inspector .split-view-vertical .sidebar-pane.composite .properties-tree,
 #-webkit-web-inspector .panel:not(.timeline),
 #-webkit-web-inspector .panel:not(.timeline) .split-view-contents {
@@ -471,7 +472,7 @@
 	z-index: 0;
 }
 
-#-webkit-web-inspector .styles-section.read-only {
+#-webkit-web-inspector .styles-section.read-only:not(.computed-style){
 	background-color: #2d2d2d !important;
 	margin: 0;
 	padding-left: 10px !important;
@@ -966,7 +967,10 @@
 
 #-webkit-web-inspector .panel.resources .outline-disclosure li.selected .selection,
 #-webkit-web-inspector .panel.scripts .outline-disclosure li.selected .selection {
-	background-image: -webkit-gradient(linear, left top, left bottom, from(#666), to(#444)) !important;
+	background: #364C3B !important;
+	color: #fff !important;
+	border-top: 1px solid #181818 !important;
+	border-bottom: 1px solid  #181818 !important;
 
 }
 
@@ -979,14 +983,17 @@
 
 #-webkit-web-inspector .panel.resources .outline-disclosure ol:focus li.selected .selection,
 #-webkit-web-inspector .panel.scripts .outline-disclosure ol:focus li.selected .selection {
-	background-image: -webkit-gradient(linear, left top, left bottom, from(#A7F8B9), to(#89f5a2)) !important;
+	background: #364C3B !important;
+	color: #fff !important;
+	border-top: 1px solid #181818 !important;
+	border-bottom: 1px solid  #181818 !important;
 	text-shadow: none !important;
 }
 
 #-webkit-web-inspector .panel.resources .outline-disclosure ol:focus li.selected .base-storage-tree-element-title,
 #-webkit-web-inspector .panel.resources ol:focus .selected .base-storage-tree-element-subtitle,
 #-webkit-web-inspector .panel.scripts .outline-disclosure ol:focus li.selected .base-navigator-tree-element-title {
-	color: #000 !important;
+	color: #fff !important;
 	text-shadow: none !important;
 }
 
@@ -1239,7 +1246,7 @@
 	border-top: 1px solid #5d5d5d !important;
 	border-bottom: 1px solid #111 !important;
 	line-height: 18px !important;
-	margin: 0 !important
+	margin: 0 !important;
 }
 
 #-webkit-web-inspector #search-results-pane-file-based .show-more-matches {
@@ -1252,12 +1259,14 @@
 }
 
 #-webkit-web-inspector #search-results-pane-file-based .search-match .highlighted-match,
-#-webkit-web-inspector .webkit-search-result {
-	padding: 0 2px;
-	color: #000;
-	border-radius: 2px;
+#-webkit-web-inspector .webkit-search-result,
+#-webkit-web-inspector .webkit-highlighted-line.webkit-line-content,
+#-webkit-web-inspector .CodeMirror .cm-token-highlight {
+	color: #000 !important;
+	border-radius: 2px !important;
 	font-size: 1em !important;
 	background-color: #89F5A2 !important;
+	box-shadow: rgba(0, 0, 0, 0.498039) 3px 3px 4px 0px !important;
 }
 
 #-webkit-web-inspector #search-results-pane-file-based .parent .search-result-file-name {
@@ -1633,18 +1642,18 @@
 
 #-webkit-web-inspector .breakpoints-list-deactivated{
 	background-color: rgba(0,0,0,0) !important;
-	opacity: .3 !important;	
+	opacity: .3 !important;
 }
 
 #-webkit-web-inspector #scripts-debug-sidebar-contents .breakpoint-hit {
-	background: #364C3B !important;		
+	background: #364C3B !important;
 	border-top: 1px solid #181818 !important;
 	border-bottom: 1px solid  #181818 !important;
 	color: #eee !important;
 }
 
-#-webkit-web-inspector #scripts-debug-sidebar-contents .breakpoint-list li:hover {
-	background-color: #333!important;
+#-webkit-web-inspector #scripts-debug-sidebar-contents .breakpoint-list li:not(.breakpoint-hit):hover {
+	background-color: #333 !important;
 }
 
 /* Call Stack */
@@ -1656,18 +1665,18 @@
 }
 
 #-webkit-web-inspector .placard:nth-of-type(2n) {
-	background: #282828 !important;	
+	background: #282828 !important;
 }
 
 #-webkit-web-inspector .placard.selected {
-	background: #364C3B !important;	
+	background: #364C3B !important;
 	color: #fff !important;
 	border-top: 1px solid #181818 !important;
 	border-bottom: 1px solid  #181818 !important;
 }
 
-#-webkit-web-inspector .placard.selected * {	
-	color: #eee !important;	
+#-webkit-web-inspector .placard.selected * {
+	color: #eee !important;
 }
 
 #-webkit-web-inspector .sidebar-pane > .body .placard + .info {
@@ -1728,11 +1737,11 @@
 }
 
 #-webkit-web-inspector .pane-title-button.add {
-	-webkit-mask-image: url(chrome-devtools://devtools/Images/paneAddButtons.png) !important;
+	-webkit-mask-image: url(chrome-devtools://devtools/bundled/Images/paneAddButtons.png) !important;
 }
 
 #-webkit-web-inspector .sidebar-pane-toolbar > .pane-title-button.refresh {
-	 -webkit-mask-image: url(chrome-devtools://devtools/Images/paneRefreshButtons.png) !important;
+	 -webkit-mask-image: url(chrome-devtools://devtools/bundled/Images/paneRefreshButtons.png) !important;
 }
 
 #-webkit-web-inspector .panel.elements .sidebar-pane-toolbar > select.select-settings {
@@ -1740,11 +1749,11 @@
 	-webkit-background-position: -24px 0 !important;
 	background-color: rgba(0,0,0,.8) !important;
 	-webkit-mask-repeat: no-repeat !important;
-	-webkit-mask-image: url(chrome-devtools://devtools/Images/paneSettingsButtons.png) !important;
+	-webkit-mask-image: url(chrome-devtools://devtools/bundled/Images/paneSettingsButtons.png) !important;
 }
 
 #-webkit-web-inspector .pane-title-button.element-state {
-	 -webkit-mask-image: url(chrome-devtools://devtools/Images/paneElementStateButtons.png) !important;
+	 -webkit-mask-image: url(chrome-devtools://devtools/bundled/Images/paneElementStateButtons.png) !important;
 }
 
 /*exception icon state colors */
@@ -1768,7 +1777,7 @@
 #-webkit-web-inspector .sidebar-pane .parent::before,
 #-webkit-web-inspector .sidebar-pane-stack .sidebar-pane-title::before {
 	background-image: none !important;
-	-webkit-mask-image: url(chrome-devtools://devtools/Images/statusbarButtonGlyphs.png) !important;
+	-webkit-mask-image: url(chrome-devtools://devtools/bundled/Images/statusbarButtonGlyphs.png) !important;
 	-webkit-mask-position: -4px -96px !important;
 	-webkit-transform: rotate(0deg);
 	-webkit-transition: -webkit-transform .10s ease-in-out;
@@ -1783,31 +1792,27 @@
 #-webkit-web-inspector #console-messages .console-group-messages .section.expanded .header::before,
 #-webkit-web-inspector #console-messages .properties-tree li.parent.expanded::before,
 #-webkit-web-inspector .outline-disclosure li.parent.expanded::before,
-#-webkit-web-inspector #search-results-pane-file-based .parent.expanded::before,
 #-webkit-web-inspector .properties-tree li.parent.expanded::before,
 #-webkit-web-inspector .section.expanded > .header::before,
 #-webkit-web-inspector .section .event-bar.expanded .header::before,
 #-webkit-web-inspector .sidebar-pane .parent.expanded::before,
 #-webkit-web-inspector .sidebar-pane-stack .sidebar-pane-title.expanded::before {
-	-webkit-mask-image: url(chrome-devtools://devtools/Images/statusbarButtonGlyphs.png) !important;
+	-webkit-mask-image: url(chrome-devtools://devtools/bundled/Images/statusbarButtonGlyphs.png) !important;
 	-webkit-mask-position: -4px -96px !important;
 	-webkit-transform: rotate(90deg);
 	-webkit-transition: -webkit-transform .10s ease-in-out;
 	-webkit-mask-repeat: no-repeat !important;
 }
 
-#-webkit-web-inspector .resource-view .properties-tree li.parent::before {
-	-webkit-mask-position: -4px -96px !important;
-}
-
-#-webkit-web-inspector .resource-view .properties-tree li.parent.expanded::before {
-	-webkit-mask-position: -20px -96px !important;
+/* BUG?? Arrows won't rotate in find [ctrl/cmd + F] results */
+#-webkit-web-inspector #search-results-pane-file-based .parent.expanded::before{
+		-webkit-mask-position: -20px -96px !important;
 }
 
 /* sort arrows point down*/
 #-webkit-web-inspector .data-grid th.sort-ascending > div::after {
 	background-image: none !important;
-	-webkit-mask-image: url(chrome-devtools://devtools/Images/statusbarButtonGlyphs.png) !important;
+	-webkit-mask-image: url(chrome-devtools://devtools/bundled/Images/statusbarButtonGlyphs.png) !important;
 	-webkit-mask-position: -20px -96px !important;
 	color: rgba(0,0,0,0) !important;
 	background-color: #AAB0AF !important;
@@ -1817,7 +1822,7 @@
 /* sort arrows point up */
 #-webkit-web-inspector .data-grid th.sort-descending > div::after {
 	background-image: none !important;
-	-webkit-mask-image: url(chrome-devtools://devtools/Images/statusbarButtonGlyphs.png) !important;
+	-webkit-mask-image: url(chrome-devtools://devtools/bundled/Images/statusbarButtonGlyphs.png) !important;
 	-webkit-mask-position: -4px -108px !important;
 	color: rgba(0,0,0,0) !important;
 	background-color: #AAB0AF !important;
